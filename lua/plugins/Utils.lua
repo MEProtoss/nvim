@@ -1,8 +1,5 @@
+local leet_arg = "leetcode.nvim"
 return {
-	-- 一个用于ranger和nvim通讯的插件
-	{
-		"kevinhwang91/rnvimr",
-	},
 
 	-- 用于linux系统，fcitx输入法环境，在退出insert模式时，自动切换至英文
 	{
@@ -54,19 +51,10 @@ return {
 		end,
 		ft = { "markdown" },
 	},
-
-	-- {
-	-- 	-- 浮动终端
-	-- 	"voldikss/vim-floaterm",
-	-- 	setup = function()
-	-- 		require("vim-floaterm").setup()
-	-- 	end,
-	-- },
-	--
-	-- leetcode.nvim
 	{
 		"kawre/leetcode.nvim",
 		build = ":TSUpdate html",
+		lazy = leet_arg ~= vim.fn.argv()[1],
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			"nvim-lua/plenary.nvim", -- telescope 所需
@@ -81,6 +69,7 @@ return {
 			-- 配置放在这里
 			---@type lc.lang
 			lang = "python3",
+			arg = leet_arg,
 			injector = { ---@type table<lc.lang, lc.inject>
 				["cpp"] = {
 					before = { "#include <bits/stdc++.h>", "using namespace std;" },

@@ -4,7 +4,7 @@ return { -- disable Plugins
 	-- { "mini.surround", enabled = false },
 	-- { "echasnovski/mini.ai", enabled = false },
 	-- { "folke/noice.nvim", enabled = false },
-	{ "rcarriga/nvim-notify", enabled = false },
+	-- { "rcarriga/nvim-notify", enabled = false },
 
 	-- { "rafamadriz/friendly-snippets", enabled = false },
 	-- { "lukas-reineke/indent-blankline.nvim", enabled = false },
