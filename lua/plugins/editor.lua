@@ -124,7 +124,7 @@ return {
 		end,
 	},
 	-- vim surround插件
-	-- {
-	-- 	"yaocccc/vim-surround",
-	-- },
+	{
+		"yaocccc/vim-surround",
+	},
 }

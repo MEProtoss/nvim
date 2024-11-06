@@ -28,21 +28,21 @@ return {
 	-- a theme
 	{
 		"malbernaz/monokai.nvim",
-		-- config = function()
-		-- 	require("monokai").setup({
-		-- 		custom_hlgroups = {
-		-- 			FlashCurrent = { fg = "#FF0000", bg = "#FF0000" },
-		-- 			FlashLabel = { fg = "#FBF3CB", bg = "#FF007C" },
-		-- 			FlashMatch = { fg = "#000000", bg = "#000000" },
-		-- 		},
-		-- 	})
-		-- end,
+		config = function()
+			require("monokai").setup({
+				custom_hlgroups = {
+					FlashCurrent = { fg = "#FF0000", bg = "#FF0000" },
+					FlashLabel = { fg = "#FBF3CB", bg = "#FF007C" },
+					FlashMatch = { fg = "#000000", bg = "#000000" },
+				},
+			})
+		end,
 	},
 	-- 设置nvim默认主题
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "tokyonight", -- catppucin gruvbox monokai
+			colorscheme = "monokai", -- catppucin gruvbox monokai
 		},
 	},
 

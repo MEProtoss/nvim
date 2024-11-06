@@ -24,33 +24,6 @@ return {
 		event = "CmdLineEnter",
 	},
 
-	-- Markdown preview
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		keys = {
-			{
-				"<leader>cp",
-				ft = "markdown",
-				"<cmd>MarkdownPreviewToggle<cr>",
-				desc = "Markdown Preview",
-			},
-		},
-		config = function()
-			vim.cmd([[do FileType]])
-			vim.g.mkdp_filetypes = { "markdown" }
-			vim.g.mkdp_browser = "wyeb"
-			vim.g.mkdp_markdown_css = "~/.config/nvim/markdown/markdown.css"
-			vim.g.mkdp_theme = "dark"
-			vim.g.mkdp_combine_preview_auto_refresh = 1
-			vim.g.mkdp_auto_start = 0
-			vim.g.mkdp_auto_close = 1
-		end,
-		ft = { "markdown" },
-	},
 	{
 		"kawre/leetcode.nvim",
 		build = ":TSUpdate html",
