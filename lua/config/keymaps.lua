@@ -3,6 +3,35 @@
 -- 在此添加其他按键映射
 local map = vim.keymap.set
 
+-- 根据文件类型运行当前文件
+local function get_run_cmd()
+	local ft = vim.bo.filetype
+	local file = vim.fn.expand("%")
+	local base = vim.fn.expand("%:r")
+
+	-- 按文件类型返回对应命令
+	local cmds = {
+		c = "gcc " .. file .. " -o " .. base .. " && ./" .. base,
+		cpp = "g++ " .. file .. " -o " .. base .. " && ./" .. base,
+		python = "python " .. file,
+		java = "javac " .. file .. " && java " .. base,
+		go = "go run " .. file,
+		rust = "cargo run",
+		javascript = "node " .. file,
+		typescript = "ts-node " .. file,
+	}
+	return cmds[ft] or nil
+end
+
+vim.keymap.set("n", "<leader>rr", function()
+	local cmd = get_run_cmd()
+	if cmd then
+		require("toggleterm").exec(cmd, 1) -- 在浮动终端执行
+	else
+		vim.notify("Unsupported  filetype: " .. vim.bo.filetype, vim.log.levels.WARN)
+	end
+end, { desc = "Run current file in toggleterm" })
+
 -- 向右移动光标
 map("i", "<A-a>", "<right>", { desc = "向右移动一格光标", noremap = true })
 -- 复制当前行

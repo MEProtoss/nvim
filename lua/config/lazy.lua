@@ -28,8 +28,13 @@ require("lazy").setup({
 		-- 过时了，这可能会破坏您的NeoVim安装。
 		version = false, -- 永远使用最新的 git commit 版本
 		-- version = "*", -- 尝试安装最新稳定版本插件来支持 semver
+		checker = {
+			enabled = false, -- 完全禁用更新检查
+			frequency = 86400, -- 若保留检查但设为24小时一次
+		},
+		-- 可选：关闭自动安装（针对新插件）
+		auto_install = false,
 	},
-
 	install = { colorscheme = { "tokyonight", "moon" } },
 	checker = { enabled = true }, -- 自动检查插件更新
 	performance = {
